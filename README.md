@@ -4,8 +4,22 @@ A reusable Microsoft Fabric notebook that runs the **Best Practice Analyzer (BPA
 model, turns the findings into an **editable plan**, lets you remove anything you do not want
 changed, and then **applies the approved fixes** back to the model, no Tabular Editor required.
 
-This is built to hand to customers: they run it against their own model, review the proposed
-changes, trim the list, and apply.
+Built for teams who want BPA findings fixed in bulk without losing control: they run it against
+their own model, review the proposed changes, trim the list, and apply.
+
+## Why
+
+The Best Practice Analyzer in Semantic Link Labs tells you *what* is wrong with a semantic model,
+but fixing dozens of findings by hand is slow and error-prone. This notebook closes the loop:
+
+```
+Run BPA  ->  Build fix plan  ->  Review / trim  ->  Dry run  ->  Apply  ->  Re-run BPA
+```
+
+- **Safe by default**: a dry run shows every change before anything is written.
+- **Human in the loop**: every finding is editable (in the notebook or as a CSV in Excel).
+- **Only known fixes**: findings without a registered remediation are never touched.
+- **Extensible**: add a rule by adding one entry to the `REMEDIATIONS` dictionary.
 
 ## What is in this folder
 
@@ -110,3 +124,7 @@ Useful TOM helpers for writing new fixes: `tom.update_measure`, `tom.update_colu
 
 - Semantic Link Labs: https://github.com/microsoft/semantic-link-labs
 - BPA rules: https://github.com/microsoft/Analysis-Services/tree/master/BestPracticeRules
+
+## Licence
+
+[MIT](LICENSE). Provided as is, without warranty. Test on a copy of your model first.
